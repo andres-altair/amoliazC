@@ -61,7 +61,7 @@ namespace amoliazC.Servicios
         {
             Console.WriteLine("0. volver");
             Console.WriteLine("1. escribir en un fichero todas las ventas del día");
-            Console.WriteLine("2.  crear un nuevo pedido para proveedores");
+            Console.WriteLine("2. crear un nuevo pedido para proveedores");
             int eleccion = Convert.ToInt32(Console.ReadLine());
             return eleccion;
         }

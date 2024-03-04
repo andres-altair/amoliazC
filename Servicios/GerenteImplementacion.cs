@@ -15,9 +15,12 @@ namespace amoliazC.Servicios
     {
         public void escribirFichero(List<VentasDto> listaVenta)
         {
-            Console.WriteLine("ecribe una fecha(dd-MM-yyyy)");
+            Console.WriteLine("escribe una fecha(dd-MM-yyyy)");
             DateTime fechaIntroducida = Convert.ToDateTime(Console.ReadLine());
-            string file= fechaIntroducida.ToString()+".txt";
+            string diaString = fechaIntroducida.Day.ToString();
+            string mesString = fechaIntroducida.Month.ToString();
+            string anioString= fechaIntroducida.Year.ToString();
+            string file= diaString+mesString+anioString+".txt";
             StreamWriter sw = new StreamWriter(file);
             foreach (VentasDto ventas in listaVenta)
             {
@@ -53,6 +56,7 @@ namespace amoliazC.Servicios
         }
         public void hacerPedido(List<EncargosDto> listaEncargos)
         {
+            EncargosDto encargosDto = new EncargosDto();
             string a = "si";
             do
             {
@@ -63,13 +67,18 @@ namespace amoliazC.Servicios
                 int cantidad= Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("fecha (dd-MM-yyyy)");
                 DateTime fecha= Convert.ToDateTime(Console.ReadLine());
-                EncargosDto encargosDto = new EncargosDto(id,nombre,cantidad,fecha);
+                encargosDto = new EncargosDto(id,nombre,cantidad,fecha);
+                listaEncargos.Add(encargosDto);
                 Console.WriteLine("quieres seguir(si/no)");
                 a =Console.ReadLine();
 
             } while (a == "si");
-            EncargosDto encargos = new EncargosDto();
-            Console.WriteLine(encargos.ToString());
+            
+            foreach(EncargosDto encargos in listaEncargos)
+            {
+                Console.WriteLine(encargos.ToString());
+            }
+         
             
         }
     }

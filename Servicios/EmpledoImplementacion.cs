@@ -52,7 +52,7 @@ namespace amoliazC.Servicios
 
         public void calculoTotalVentasDiarios(List<VentasDto> listaventa)
         {
-            Console.WriteLine("ecribe una fecha(dd-MM-yyyy)");
+            Console.WriteLine("escribe una fecha(dd-MM-yyyy)");
             DateTime fechaIntroducida = Convert.ToDateTime(Console.ReadLine());
             foreach(VentasDto ventas in listaventa)
             {
